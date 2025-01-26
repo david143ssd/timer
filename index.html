@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=PT+Sans+Narrow:wght@400;700&family=Smooch+Sans:wght@100..900&display=swap');
+        </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <link rel="icon" href="./timer.png">
+<!-- styling -->
+<style>
+* {
+    font-family: "Smooch Sans", serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-color: crimson;
+}
+.center{
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    background-color:white;
+}
+.center h1{
+    font-size: 40px;
+}
+</style>
+</head>
+
+<body>
+<main>
+    <div class="center">
+        <div class="time">
+            <h1></h1>
+        </div>
+    </div>
+</main>
+
+    <!-- Javascript code -->
+<script>
+window.addEventListener("DOMContentLoaded",()=>{
+let interval;
+    clearInterval(interval)
+
+    const showdata=document.querySelector("main .center .time h1")
+    
+ interval=setInterval(()=>{
+        let newTime=new Date()
+        let hour=newTime.getHours() > 12 ? newTime.getHours()-12 : newTime.getHours() 
+        let minute=newTime.getMinutes() 
+        let second=newTime.getSeconds() 
+        document.title=`${hour} : ${minute} : ${second}`
+         showdata.innerHTML=`${hour} : ${minute} : ${second}`
+    },1000)
+})
+
+</script>
+</body>
+</html>
